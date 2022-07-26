@@ -2,20 +2,17 @@
 const BandsService=require('../services/bands.service');
 
 const BandsController={
-    getAll:async (req,res)=>{
+    get:async (req,res)=>{
+        const {body}=req;
+
         try{
-            const bands=await BandsService.getAll();
-            res.status(200).json({data:bands})
+
+            let bands;
+            Object.entries(body).length===0 ? bands=await BandsService.getAll() : bands=await BandsService.get(body);
+            res.status(200).json({data:bands});
+
         }catch(err){
             res.status(404).json({message:err.message});
-        }
-    },
-    get:async (req,res)=>{
-
-        try{
-
-        }catch(err){
-
         }
     },
     create:async (req,res)=>{
