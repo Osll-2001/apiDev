@@ -14,8 +14,8 @@ const BandService={
 
     get:async (query)=>{
         try{
-            const band=await Bands.find(query);
-            return band;
+            const bands=await Bands.find(query);
+            return bands;
         }catch(err){
             throw Error('Error',err);
         }
