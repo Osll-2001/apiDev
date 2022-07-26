@@ -5,4 +5,8 @@ const BandController=require('../../controllers/bands.controller')
 
 BandsRouter.get('/',BandController.getAll);
 
+//BandsRouter.get('/',BandController.get);
+
+BandsRouter.post('/',BandController.create);
+
 module.exports=BandsRouter;
