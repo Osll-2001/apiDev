@@ -4,8 +4,8 @@ const Bands=mongoose.model('Bands',{
     _id:{type:String, required:true},
     name:{type:String, required:true},
     genre:{type:String, required:true},
-    startYear:{type:Number}
-
+    startYear:{type:Number},
+    urlImage:{type:String}
 })
 
 module.exports=Bands;
