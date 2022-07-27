@@ -1,6 +1,7 @@
 const SongsService=require('../services/songs.services');
 
 const SongsController={
+
     get:async(req,res)=>{
 
         const {query}=req;
@@ -33,6 +34,29 @@ const SongsController={
             res.sendStatus(201);
         }catch(err){
             res.status(404).json({message:err.message});
+        }
+    },
+    
+    update:async(req,res)=>{
+        const{id}=req.params;
+        const {body}=req;
+
+        try{
+            await SongsService.update(id,body);
+            res.status(200).json({message:'Modificado con exito'});
+        }catch(err){
+            res.status(500).json({message:err.message});
+        }
+    },
+
+    delete:async(req,res)=>{
+        const {id}=req.params;
+
+        try{
+            await SongsService.delete(id);
+            res.status(200).json({message:'Se elimino el registro con exito'});
+        }catch(err){
+            res.status(500).json({message:err.message});
         }
     }
 }

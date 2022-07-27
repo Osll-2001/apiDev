@@ -28,6 +28,27 @@ const SongsService={
         }catch(err){    
             throw Error('Error',err);
         }
+    },
+
+    update:async(id,body)=>{
+
+        try{
+            const song=await Songs.findOne({_id:id});
+            Object.assign(song,body);
+            song.save();
+        }catch(err){
+            throw Error('Error: ',err);
+        }
+    },
+
+    delete:async(id)=>{
+
+        try{
+            const song=await Songs.findOne({_id:id});
+            await song.remove();
+        }catch(err){
+            throw Error('Error: ',err);
+        }
     }
 }
 
