@@ -5,7 +5,7 @@ const SongsService={
     get:async(query)=>{
         try{
 
-            const songs=await Songs.find(query);
+            const songs=await Songs.find(query,{"__v":0});
             return songs;
         }catch(err){
             throw Error('Error',err);
@@ -14,7 +14,7 @@ const SongsService={
 
     getId:async (id)=>{
         try{
-            const song=await Songs.find({_id:id});
+            const song=await Songs.find({_id:id},{"__v":0});
             return song;
         }catch(err){
             throw Error('Error:',err.message);

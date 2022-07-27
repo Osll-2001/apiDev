@@ -4,7 +4,7 @@ const Bands=require('../models/bands.model');
 const BandService={
     get:async (query)=>{
         try{
-            const bands=await Bands.find(query);
+            const bands=await Bands.find(query,{"__v":0});
             return bands;
         }catch(err){
             throw Error('Error',err);
@@ -13,7 +13,7 @@ const BandService={
 
     getId:async(id)=>{
         try{
-            const band=await Bands.find({_id:id});
+            const band=await Bands.find({_id:id},{"__v":0});
             return band;
         }catch(err){
             throw Error('Error',err);
