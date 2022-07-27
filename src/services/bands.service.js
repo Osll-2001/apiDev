@@ -27,6 +27,17 @@ const BandService={
         }catch(err){
             throw Error('Error',err);
         }
+    },
+
+    update:async(id,body)=>{
+
+        try{
+            const band=await Bands.findOne({_id:id});
+            Object.assign(band,body);
+            band.save();
+        }catch(err){
+            throw Error('Error: ',err);
+        }
     }
 }
 
