@@ -3,18 +3,28 @@ const BandsService=require('../services/bands.service');
 
 const BandsController={
     get:async (req,res)=>{
-        const {body}=req;
+        const {query}=req;
 
         try{
 
-            let bands;
-            Object.entries(body).length===0 ? bands=await BandsService.getAll() : bands=await BandsService.get(body);
+            let bands=await BandsService.get(query);
             res.status(200).json({data:bands});
 
         }catch(err){
             res.status(404).json({message:err.message});
         }
     },
+    
+    getId:async(req,res)=>{
+        const {id}=req.params;
+        try{
+            const band=await BandsService.getId(id);
+            res.status(200).json({data:band});
+        }catch(err){
+            throw Error('Error: ',err.message);
+        }
+    },
+
     create:async (req,res)=>{
         const {body}=req;
         try{

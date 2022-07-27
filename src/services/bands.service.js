@@ -2,20 +2,19 @@ const Bands=require('../models/bands.model');
 
 
 const BandService={
-
-    getAll:async ()=>{
+    get:async (query)=>{
         try{
-            const bands=await Bands.find();
+            const bands=await Bands.find(query);
             return bands;
         }catch(err){
             throw Error('Error',err);
         }
     },
 
-    get:async (query)=>{
+    getId:async(id)=>{
         try{
-            const bands=await Bands.find(query);
-            return bands;
+            const band=await Bands.find({_id:id});
+            return band;
         }catch(err){
             throw Error('Error',err);
         }
