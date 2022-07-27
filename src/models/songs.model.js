@@ -8,7 +8,8 @@ const Songs=mongoose.model('Songs',{
     album:{type:String,required:true},
     releaseYear:{type:Number,required:true},
     length:{type:String,required:true},
-    lyrics:{type:String,required:true}
+    lyrics:{type:String,required:true},
+    link:{type:String,required:true}
 
 })
 
