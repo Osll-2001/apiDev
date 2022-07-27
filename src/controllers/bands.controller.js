@@ -45,6 +45,17 @@ const BandsController={
         }catch(err){
             res.status(500).json({message:err.message});
         }
+    },
+
+    delete:async(req,res)=>{
+        const {id}=req.params;
+
+        try{
+            await BandsService.delete(id);
+            res.status(200).json({message:'Se elimino el registro con exito'});
+        }catch(err){
+            res.status(500).json({message:err.message});
+        }
     }
 }
 

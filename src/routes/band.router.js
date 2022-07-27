@@ -8,5 +8,6 @@ BandsRouter.get('/:id',BandController.getId);
 BandsRouter.post('/',BandController.create);
 BandsRouter.patch('/:id',BandController.update);
 BandsRouter.put('/:id',BandController.update);
+BandsRouter.delete('/:id',BandController.delete);
 
 module.exports=BandsRouter;
