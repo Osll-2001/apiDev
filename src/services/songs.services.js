@@ -12,6 +12,15 @@ const SongsService={
         }
     },
 
+    getId:async (id)=>{
+        try{
+            const song=await Songs.find({_id:id});
+            return song;
+        }catch(err){
+            throw Error('Error:',err.message);
+        }
+    },
+
     create:async(body)=>{
         try{
             const newSong=new Songs(body);
