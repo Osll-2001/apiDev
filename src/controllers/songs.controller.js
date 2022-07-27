@@ -2,10 +2,13 @@ const SongsService=require('../services/songs.services');
 
 const SongsController={
     get:async(req,res)=>{
-        
+
+        const {query}=req;
         try{
-            const songs=await SongsService.getAll();
+
+            let songs=await SongsService.get(query);
             res.status(200).json({data:songs});
+
         }catch(err){
             res.status(404).json({message:err.message});
         }
@@ -14,7 +17,7 @@ const SongsController={
         const {body}=req;
         try{
             await SongsService.create(body);
-            res.sendStatus(204);
+            res.sendStatus(201);
         }catch(err){
             res.status(404).json({message:err.message});
         }

@@ -1,6 +1,7 @@
 const mongoose=require('mongoose');
 
 const Songs=mongoose.model('Songs',{
+    _id:{type:String,required:true},
     name:{ type:String, required:true},
     band:{type:String, required:true},
     genre:{type:String, required:true},
