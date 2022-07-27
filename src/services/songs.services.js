@@ -9,6 +9,14 @@ const SongsService={
         }catch(err){
             throw Error('Error',err);
         }
+    },
+    create:async(body)=>{
+        try{
+            const newSong=new Songs(body);
+            await newSong.save();
+        }catch(err){    
+            throw Error('Error',err);
+        }
     }
 }
 
