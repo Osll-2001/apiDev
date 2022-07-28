@@ -18,17 +18,9 @@ app.listen(port,()=>{
 app.use(express.json());
 
 // CORS
-const whitelist = ['http://127.0.0.1:5500'];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.includes(origin) || !origin) {
-      callback(null, true)
-    } else {
-      callback(new Error('No permitido por tema de CORS'));
-    }
-  }
-};
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: '*'
+}));
 
 app.get('/',(req,res)=>{
     res.send('Api Music V.1.');
