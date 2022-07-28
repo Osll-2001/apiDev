@@ -27,3 +27,9 @@ app.get('/',(req,res)=>{
 })
 
 routerApi(app);
+
+//CAPTURA LAS RUTAS NO ESPECIFICADAS ANTERIORMENTE
+app.get('*',(req,res)=>{
+  res.status(404).send('Pagina no Encontrada');
+})
+
