@@ -29,7 +29,18 @@ const BandService={
         }
     },
 
-    update:async(id,body)=>{
+    updatePartial:async(id,body)=>{
+
+        try{
+            const band=await Bands.findOne({_id:id});
+            Object.assign(band,body);
+            band.save();
+        }catch(err){
+            throw Error('Error: ',err);
+        }
+    },
+
+    updateComplete:async(id,body)=>{
 
         try{
             const band=await Bands.findOne({_id:id});

@@ -37,12 +37,24 @@ const SongsController={
         }
     },
     
-    update:async(req,res)=>{
+    updatePartial:async(req,res)=>{
         const{id}=req.params;
         const {body}=req;
 
         try{
-            await SongsService.update(id,body);
+            await SongsService.updatePartial(id,body);
+            res.status(200).json({message:'Modificado con exito'});
+        }catch(err){
+            res.status(500).json({message:err.message});
+        }
+    },
+
+    updateComplete:async(req,res)=>{
+        const{id}=req.params;
+        const {body}=req;
+
+        try{
+            await SongsService.updateComplete(id,body);
             res.status(200).json({message:'Modificado con exito'});
         }catch(err){
             res.status(500).json({message:err.message});
