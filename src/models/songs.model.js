@@ -10,7 +10,6 @@ const Songs=mongoose.model('Songs',{
     length:{type:String,required:true},
     lyrics:{type:String,required:true},
     link:{type:String,required:true}
-
 })
 
 module.exports=Songs;

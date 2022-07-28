@@ -28,8 +28,6 @@ app.use(cors({
 
 //RAIZ O SEA LA PAGINA PRINCIPAL
 app.get('/',(req,res)=>{
-  console.log(__dirname);
-  //envia un archivo a el cliente
   res.sendFile(`${__dirname}/index.html`)
 })
 

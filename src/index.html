@@ -4,9 +4,217 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Documentación</title>
+    <style>
+        body{
+            color:#fafafa;
+            background-color: #212121;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .content{
+            margin-left: 10px;
+            margin-bottom: 50px;
+        }
+        li a,.url-text{
+            margin-left: 20px;
+            color: #dadada;
+        }
+
+        .method{
+            border-top: 1px solid #fafafa;
+            border-bottom: 1px solid #fafafa;
+            padding: 10px;
+        }
+
+        .Run,.entidad{
+            color:red;
+        }
+        .function{
+            color:green;
+        }
+
+        .parametro{
+            color: teal;
+            margin:5px;
+        }
+        h4{
+            color:slategrey;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Hola desde el inicio</h1>
+    <p>Esta API fue creada como proyecto para la kata de JavaScript Avanzado</p>
+    <p>Creada por: Octavio Suriel López López</p>
+    <div class="metodos">
+        <p>A continuación se muestrar los metodos y sus variantes para implementarse en la api</p>
+        <div class="get method">
+            <h2>GET</h2>
+            <div class="getAll">
+                <h3 class="function">ALL</h3>
+                <div class="getAllBands content">
+                    <h3>Traer un json con todas las bandas</h3>
+                    <li>
+                        <a target="_blank" href="https://app-api-devf.herokuapp.com/bands">https://app-api-devf.herokuapp.com/bands</a>
+                    </li>
+                </div>
+                <div class="getAllSongs content">
+                    <h3>Traer un json con todas las canciones</h3>
+                    <li>
+                        <a target="_blank" href="https://app-api-devf.herokuapp.com/songs">https://app-api-devf.herokuapp.com/songs</a>
+                    </li>
+                </div>
+            </div>
+            <div class="getId">
+                <h3 class="function">ID</h3>
+                <div class="getIdBands content">
+                    <h3>Traer un json con la <span class="entidad">banda</span> con el ID indicado en la url(numerico)</h3>
+                    <li>
+                        <span class="url-text">https://app-api-devf.herokuapp.com/bands/{id}</span><a class="Run" target="_blank" href="https://app-api-devf.herokuapp.com/bands/1">Probar</a>
+                    </li>
+                </div>
+                <div class="getIdSongs content">
+                    <h3>Traer un json con la <span class="entidad">canción</span> con el ID indicado en la url(numerico)</h3>
+                    <li>
+                        <span class="url-text">https://app-api-devf.herokuapp.com/songs/{id}</span><a class="Run" target="_blank" href="https://app-api-devf.herokuapp.com/songs/1">Probar</a>
+                    </li>
+                </div>
+            </div>
+            <div class="getQuery">
+                <h3 class="function">QUERY(S)</h3>
+                <div class="getQueryBands content">
+                    <h3>Traer un json con la(s) <span class="entidad">banda(s)</span> que coincida con el o los querys dados</h3>
+                    <h4>Parametros: 
+                        <span class="parametro">name(texto)</span>
+                        <span class="parametro">genre(texto)</span>
+                        <span class="parametro">startYear(numero)</span>
+                    </h4>
+                    <li>
+                        <span class="url-text">https://app-api-devf.herokuapp.com/bands/?name={nameBand}</span><a class="Run" target="_blank" href="https://app-api-devf.herokuapp.com/bands?name=Enjambre">Probar</a>
+                    </li>
+                </div>
+                <div class="getQuerySongs content">
+                    <h3>Traer un json con la(s) <span class="entidad">canción(es)</span> que coincida con el o los querys dados</h3>
+                    <h4>Parametros: 
+                        <span class="parametro">name(texto)</span>
+                        <span class="parametro">band(texto)</span>
+                        <span class="parametro">genre(texto)</span>
+                        <span class="parametro">album(texto)</span>
+                        <span class="parametro">releaseYear(numero)</span>
+                        <span class="parametro">length(texto)</span>
+                    </h4>
+                    <li>
+                        <span class="url-text">https://app-api-devf.herokuapp.com/bands/?genre={genreSong}</span><a class="Run" target="_blank" href="https://app-api-devf.herokuapp.com/songs?genre=Alternative Rock">Probar</a>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="post method">
+            <h2>POST</h2>
+            <div class="postBands content">
+                <h3>Crea una nueva <span class="entidad">banda</span> en base al request mandado(JSON)</h3>
+                <h4>Cuerpo Request: 
+                    <span class="parametro">name(texto)</span>
+                    <span class="parametro">genre(texto)</span>
+                    <span class="parametro">startYear(numero)</span>
+                    <span class="parametro">urlImage(texto)</span>
+                </h4>
+                <li>
+                    <span class="url-text">https://app-api-devf.herokuapp.com/bands -> (OBLIGATORIAMENTE ES NECESARIO EL BODY DEL REQUEST)</span>
+                </li>
+            </div>
+            <div class="postSongs content">
+                <h3>Crea una nueva <span class="entidad">canción</span> en base al request mandado(JSON)</h3>
+                <h4>Cuerpo Request: 
+                    <span class="parametro">name(texto)</span>
+                    <span class="parametro">band(texto)</span>
+                    <span class="parametro">genre(texto)</span>
+                    <span class="parametro">album(texto)</span>
+                    <span class="parametro">releaseYear(numero)</span>
+                    <span class="parametro">length(texto)</span>
+                    <span class="parametro">lyrics(texto)</span>
+                </h4>
+                <li>
+                    <span class="url-text">https://app-api-devf.herokuapp.com/songs  ->  (OBLIGATORIAMENTE ES NECESARIO EL BODY DEL REQUEST)</span>
+                </li>
+            </div>
+        </div>
+        <div class="put method">
+            <h2>PUT</h2>
+            <div class="putBands content">
+                <h3>Realiza una edición completa de la <span class="entidad">banda</span> especificada en el path, el elemento a editar será especificada en el body del request(JSON)</h3>
+                <h4>Elementos a editar(Todos): 
+                    <span class="parametro">name(texto)</span>
+                    <span class="parametro">genre(texto)</span>
+                    <span class="parametro">startYear(numero)</span>
+                    <span class="parametro">urlImage(texto)</span>
+                </h4>
+                <li>
+                    <span class="url-text">https://app-api-devf.herokuapp.com/bands/{idBandToEditComplete}  ->  (OBLIGATORIAMENTE ES NECESARIO EL BODY DEL REQUEST)</span>
+                </li>
+            </div>
+            <div class="patchSongs content">
+                <h3>Realiza una edición completa de la <span class="entidad">canción</span> especificada en el path, el elemento a editar será especificada en el body del request(JSON)</h3>
+                <h4>Elementos a editar(Todos): 
+                    <span class="parametro">name(texto)</span>
+                    <span class="parametro">band(texto)</span>
+                    <span class="parametro">genre(texto)</span>
+                    <span class="parametro">album(texto)</span>
+                    <span class="parametro">releaseYear(numero)</span>
+                    <span class="parametro">length(texto)</span>
+                    <span class="parametro">lyrics(texto)</span>
+                </h4>
+                <li>
+                    <span class="url-text">https://app-api-devf.herokuapp.com/songs/{idBandToEditComplete}  ->  (OBLIGATORIAMENTE ES NECESARIO EL BODY DEL REQUEST)</span>
+                </li>
+            </div>
+        </div>
+        <div class="patch method">
+            <h2>PATCH</h2>
+            <div class="patchBands content">
+                <h3>Realiza una edición parcial de la <span class="entidad">banda</span> especificada en el path, el elemento a editar será especificada en el body del request(JSON)</h3>
+                <h4>Elementos a editar(No todos en la misma petición): 
+                    <span class="parametro">name(texto)</span>
+                    <span class="parametro">genre(texto)</span>
+                    <span class="parametro">startYear(numero)</span>
+                    <span class="parametro">urlImage(texto)</span>
+                </h4>
+                <li>
+                    <a>https://app-api-devf.herokuapp.com/bands/{idBandToEditPartial}  ->  (OBLIGATORIAMENTE ES NECESARIO EL BODY DEL REQUEST)</a>
+                </li>
+            </div>
+            <div class="patchSongs content">
+                <h3>Realiza una edición parcial de la <span class="entidad">canción</span> especificada en el path, el elemento a editar será especificada en el body del request(JSON)</h3>
+                <h4>Elementos a editar(No todos en la misma petición): 
+                    <span class="parametro">name(texto)</span>
+                    <span class="parametro">band(texto)</span>
+                    <span class="parametro">genre(texto)</span>
+                    <span class="parametro">album(texto)</span>
+                    <span class="parametro">releaseYear(numero)</span>
+                    <span class="parametro">length(texto)</span>
+                    <span class="parametro">lyrics(texto)</span>
+                </h4>
+                <li>
+                    <a>https://app-api-devf.herokuapp.com/bands/{idBandToEditPartial}  ->  (OBLIGATORIAMENTE ES NECESARIO EL BODY DEL REQUEST)</a>
+                </li>
+            </div>
+            
+        </div>
+        <div class="delete method">
+            <h2>DELETE</h2>
+            <div class="deleteBands content">
+                <h3>Elimina a la <span class="entidad">banda</span> con el ID indicado en la url(numerico)</h3>
+                <li>
+                    <span class="url-text">https://app-api-devf.herokuapp.com/bands/{id}</span>
+                </li>
+            </div>
+            <div class="deleteSongs content">
+                <h3>Elimina a la <span class="entidad">canción</span> con el ID indicado en la url(numerico)</h3>
+                <li>
+                    <span class="url-text">https://app-api-devf.herokuapp.com/songs/{id}</span>
+                </li>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
