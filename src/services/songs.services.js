@@ -23,6 +23,10 @@ const SongsService={
 
     create:async(body)=>{
         try{
+            //SE CREA UNA ID NUEVA PARA ESTE DOCUMENTO
+            const newId=await Songs.count()+1;
+            //SE COMBINA LOS 2 OBJECTOS PARA FORMAR UNO
+            Object.assign(body,{_id:newId});
             const newSong=new Songs(body);
             await newSong.save();
         }catch(err){    
