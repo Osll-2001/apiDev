@@ -22,6 +22,8 @@ const BandService={
 
     create:async (body)=>{
         try{
+            const newId=await Bands.count()+1;
+            Object.assign(body,{_id:newId});
             const newBand=new Bands(body);
             await newBand.save();
         }catch(err){
