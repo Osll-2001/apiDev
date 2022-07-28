@@ -22,8 +22,15 @@ app.use(cors({
   origin: '*'
 }));
 
+// app.get('/',(req,res)=>{
+//     res.send('Api Music V.1.');
+// })
+
+//RAIZ O SEA LA PAGINA PRINCIPAL
 app.get('/',(req,res)=>{
-    res.send('Api Music V.1.');
+  console.log(__dirname);
+  //envia un archivo a el cliente
+  res.sendFile(`${__dirname}/index.html`)
 })
 
 routerApi(app);
