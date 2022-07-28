@@ -18,7 +18,7 @@ app.listen(port,()=>{
 app.use(express.json());
 
 // CORS
-const whitelist = ['http://127.0.0.1:5500/index.html'];
+const whitelist = ['http://127.0.0.1:5500'];
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.includes(origin) || !origin) {
